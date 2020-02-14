@@ -93,3 +93,4 @@ ENV/
 
 # mypy
 .mypy_cache/
+state.json

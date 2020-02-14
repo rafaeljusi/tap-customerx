@@ -2,7 +2,7 @@ from setuptools import setup
 
 
 setup(name="tap-customerx",
-      version="1.0.5",
+      version="1.0.6",
       description="Singer.io tap for extracting data from the CustomerX API",
       author="Stitch",
       author_email="dev@stitchdata.com",
@@ -11,8 +11,8 @@ setup(name="tap-customerx",
       py_modules=["tap_customerx"],
       install_requires=[
           "pendulum==2.0.4",
-          "requests==2.21.0",
-          "singer-python==5.4.1",
+          "requests==2.20.0",
+          "singer-python==5.8.0",
       ],
       entry_points="""
           [console_scripts]
