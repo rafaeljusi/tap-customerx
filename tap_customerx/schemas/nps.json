@@ -1,0 +1,28 @@
+{
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "integer"
+    },
+    "date_response": {
+      "type": ["null", "string"],
+      "format": "date-time"
+    },
+    "date_send": {
+      "type": ["null", "string"],
+      "format": "date-time"
+    },
+    "question": {
+      "type": ["null", "string"]
+    },
+    "response": {
+      "type": ["null", "integer"]
+    },
+    "note": {
+      "type": ["null", "string"]
+    },
+    "user": {
+      "type": ["null", "string"]
+    }
+  }
+}

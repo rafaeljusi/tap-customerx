@@ -9,6 +9,7 @@ from singer.catalog import Catalog, CatalogEntry, Schema
 from .config import BASE_URL, CONFIG_DEFAULTS
 from .exceptions import InvalidResponseException
 from .streams import (ClientsStream)
+from .streams import (NPSStream)
 
 
 logger = singer.get_logger()
@@ -16,7 +17,7 @@ logger = singer.get_logger()
 
 class CustomerXTap(object):
     streams = [
-        ClientsStream()
+        ClientsStream(), NPSStream()
     ]
 
     def __init__(self, config, state):
