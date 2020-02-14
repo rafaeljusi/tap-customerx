@@ -1,0 +1,108 @@
+{
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "integer"
+    },
+    "updated_at": {
+      "type": ["null", "string"],
+      "format": "date-time"
+    },
+    "created_at": {
+      "type": ["null", "string"],
+      "format": "date-time"
+    },
+    "date_register": {
+      "type": ["null", "string"],
+      "format": "date-time"
+    },
+    "external_id_client": {
+      "type": ["null", "string"]
+    },
+    "company_name": {
+      "type": ["null", "string"]
+    },
+    "trading_name": {
+      "type": ["null", "string"]
+    },
+    "cnpj_cpf": {
+      "type": ["null", "string"]
+    },
+    "ie_rg": {
+      "type": ["null", "string"]
+    },
+    "email": {
+      "type": ["null", "string"]
+    },
+    "cep": {
+      "type": ["null", "string"]
+    },
+    "country": {
+      "type": ["null", "string"]
+    },
+    "state": {
+      "type": ["null", "string"]
+    },
+    "city": {
+      "type": ["null", "string"]
+    },
+    "street": {
+      "type": ["null", "string"]
+    },
+    "district": {
+      "type": ["null", "string"]
+    },
+    "number": {
+      "type": ["null", "string"]
+    },
+    "complement": {
+      "type": ["null", "string"]
+    },
+    "contract_status": {
+      "type": ["null", "string"]
+    },
+    "cancellation_date": {
+      "type": ["null", "string"],
+      "format": "date-time"
+    },
+    "facebook": {
+      "type": ["null", "string"]
+    },
+    "linkedin": {
+      "type": ["null", "string"]
+    },
+    "twitter": {
+      "type": ["null", "string"]
+    },
+    "instagram": {
+      "type": ["null", "string"]
+    },
+    "youtube": {
+      "type": ["null", "string"]
+    },
+    "site": {
+      "type": ["null", "string"]
+    },
+    "client_segment_id": {
+      "type": ["null", "string"]
+    },
+    "client_group_id": {
+      "type": ["null", "string"]
+    },
+    "client_service_id": {
+      "type": ["null", "string"]
+    },
+    "tags": {
+      "type": ["null", "string"]
+    },
+    "segment": {
+      "type": ["null", "string"]
+    },
+    "group": {
+      "type": ["null", "string"]
+    },
+    "portfolio": {
+      "type": ["null", "string"]
+    }
+  }
+}
