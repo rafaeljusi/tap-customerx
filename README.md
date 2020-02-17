@@ -6,6 +6,8 @@ This tap:
 - Pulls raw data from CustomerX's [REST API](https://doc.api.customerx.com.br/?version=latest)
 - Extracts the following resources from CustomerX
   - [Clientes](https://doc.api.customerx.com.br/?version=latest#a0803301-389b-45d5-a77b-43d413e7534b)
+  - [NPS](https://doc.api.customerx.com.br/?version=latest#4655df85-aae7-47c8-a7d4-4def0494c956)
+  - [Tasks](https://doc.api.customerx.com.br/?version=latest#a5412030-4ace-4ded-8e90-95ccc4f1725b)
 - Outputs the schema for each resource
 - Incrementally pulls data based on the input state
 
