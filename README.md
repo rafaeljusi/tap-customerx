@@ -47,7 +47,95 @@ tap-customerx --config tap_config.json --discover > catalog.json
 ## Run
 `tap-customerx --config tap_config.json --catalog catalog.json | target-stitch --config target_config.json >> state.json`
 
+## How-to add new streams
+1. Create the stream file on tap_customerx/streams/
 
+Example: tap_customerx/streams/sales.py
+
+```
+from tap_customerx.stream import CustomerXIterStream
+
+
+class SalesStream(CustomerXIterStream):
+    base_endpoint = 'sales'
+    endpoint = 'sales'
+    schema = 'sales'
+    key_properties = ['id']
+    state_field = 'updated_at'
+    pagination = True
+    limit = 20
+
+    def get_name(self):
+        return self.schema
+
+    def update_endpoint(self):
+        self.endpoint = "{}?created_at={}&updated_at={}&page={}&max_results={}".format(self.base_endpoint, self.initial_state.strftime('%Y-%m-%d'), self.earliest_state.strftime('%Y-%m-%d'), self.start, self.limit)
+```
+
+2. Create the schema file on tap_custoemrx/schemas/
+
+Example: tap_customerx/schemas/sales.json
+```
+{
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "integer"
+    },
+    "updated_at": {
+      "type": ["null", "string"],
+      "format": "date-time"
+    },
+    "created_at": {
+      "type": ["null", "string"],
+      "format": "date-time"
+    },
+    "customer_name": {
+      "type": ["null", "string"]
+    }
+}
+```
+
+3. Edit the __init__ file adding the new stream:
+
+tap_customerx/streams/__init__.py
+
+```
+  from .clients import ClientsStream
+  from .nps import NPSStream
+  from .tasks import TasksStream
++ from .sales import SalesStream
+  __all__ = [
++   'SalesStream'
+    'ClientsStream',
+    'NPSStream',
+    'TasksStream'
+    ]
+```
+
+4. Edit the tap file adding the new stream:
+
+tap_customerx/tap.py
+
+```
+  from .streams import (ClientsStream)
+  from .streams import (NPSStream)
+  from .streams import (TasksStream)
++ from .streams import (SalesStream)
+
+  logger = singer.get_logger()
+
+  class CustomerXTap(object):
+      streams = [
++         SalesStream(),
+          ClientsStream(),
+          NPSStream(),
+          TasksStream()
+      ]
+
+```
+
+5. [Update the catalog.json file](#setup)
 
 ---
 
