@@ -39,7 +39,7 @@ This tap:
 ```
 
 5. Generate the catalog.json file
-`tap-customerx --config tap_config.json --discover >> catalog.json`
+`tap-customerx --config tap_config.json --discover > catalog.json`
 
 
 ## Run
